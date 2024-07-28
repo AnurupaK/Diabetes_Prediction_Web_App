@@ -9,14 +9,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <!-- <link rel="stylesheet" href="style.css"> -->
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
-<!-- <link rel="stylesheet" href="/Frontend/static/style.css"> -->
+
 </head>
 
 <body>
-    <!-- Glucose mg/dL,BloodPressure mm Hg,Insulin µIU/mL,BMI kg/m²,Age years,Outcome -->
-
     <div class="container">
         <div class="input_box  inner_box">Input Area 📥
             <div class="five_input">
@@ -38,10 +35,7 @@
             <div class="ai_heading">AI Doc👨🏻‍⚕️<button class="stop_button"></button></div>
             <div class="report_area">
                 <div class="chat_area">
-                    <!-- <div class="message_area">Hello</div> -->
-                    <!-- <div class="user chat_box"></div> -->
-                    <!-- <div class="bot chat_box"></div>
-                     <button class="stop_button"></button> -->
+                    
                 </div>
                 <div class="user_type">
                     <textarea name="user_input" id="userInput" placeholder="Ask your query"></textarea>
@@ -55,9 +49,9 @@
         <p>&copy; 2024 Anurupa Karmakar</p>
     </footer>
 
-    <!-- <script src=""></script> -->
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-     <!-- <script src="/Frontend/static/script.js"></script> -->
+
 </body>
 
 </html>
