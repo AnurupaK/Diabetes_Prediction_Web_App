@@ -2,3 +2,4 @@ google-generativeai
 python-dotenv
 flask
 scikit-learn
+gunicorn==20.1.0
