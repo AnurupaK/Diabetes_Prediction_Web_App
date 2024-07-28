@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify,render_template
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Mymodules')))
 from numberValidation import validate_inputs
 from Digits import checkDigits
 from range_check import rangeCheck
-import os
-import sys
 import pickle
 import numpy as np
 import pandas as pd
