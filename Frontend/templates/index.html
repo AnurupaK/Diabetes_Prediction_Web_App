@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+<!-- <link rel="stylesheet" href="/Frontend/static/style.css"> -->
+</head>
+
+<body>
+    <!-- Glucose mg/dL,BloodPressure mm Hg,Insulin µIU/mL,BMI kg/m²,Age years,Outcome -->
+
+    <div class="container">
+        <div class="input_box  inner_box">Input Area 📥
+            <div class="five_input">
+                <input type="number" class="data" name="Glucose" id="glucose" placeholder="Glucose mg/dL">
+                <input type="number" class="data" name="BP" id="bp" placeholder="BP mm Hg">
+                <input type="number" class="data" name="Insulin" id="insulin" placeholder="Insulin µIU/mL">
+                <input type="number" class="data" name="BMI" id="bmi" placeholder="BMI kg/m²">
+                <input type="number" class="data" name="Age" id="age" placeholder="Age years">
+            </div>
+            <div class="Outcome">
+                <div>Outcome</div>
+                <input type="text" name="Result" id="result" value="{{outcome}}">
+                <div class="submit">
+                    <button id="submit_button" class="Submit_button">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="AI_box  inner_box">
+            <div class="ai_heading">AI Doc👨🏻‍⚕️<button class="stop_button"></button></div>
+            <div class="report_area">
+                <div class="chat_area">
+                    <!-- <div class="message_area">Hello</div> -->
+                    <!-- <div class="user chat_box"></div> -->
+                    <!-- <div class="bot chat_box"></div>
+                     <button class="stop_button"></button> -->
+                </div>
+                <div class="user_type">
+                    <textarea name="user_input" id="userInput" placeholder="Ask your query"></textarea>
+                    <input class="cbutton" type="button" value="🚀">
+                </div>
+            </div>
+            <input class="gbutton" type="button" value="Generate Report">
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Anurupa Karmakar</p>
+    </footer>
+
+    <!-- <script src=""></script> -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+     <!-- <script src="/Frontend/static/script.js"></script> -->
+</body>
+
+</html>

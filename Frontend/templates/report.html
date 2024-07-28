@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+        <link href="{{ url_for('static', filename='reportStyle.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="pdf">
+        <div class="heading">Diabetes Report</div>
+        <div class="main_area">
+            <div class="pData area">
+                <div class="pData_Heading">Patient's Data</div>
+                <div class="inputs">
+                    <div class="data1 data"><p>Glucose</p></div>
+                    <div class="data2 data"><p>BP</p></div>
+                    <div class="data3 data"><p>Insulin</p></div>
+                    <div class="data4 data"><p>BMI</p></div>
+                    <div class="data5 data"><p>Age</p></div>
+                    <div class="data6 data"><p id="d1"></p></div>
+                    <div class="data7 data"><p id="d2"></p></div>
+                    <div class="data8 data"><p id="d3"></p></div>
+                    <div class="data9 data"><p id="d4"></p></div>
+                    <div class="data10 data"><p id="d5"></p></div>
+                </div>
+            </div>
+            <div class="diagnosis area">
+                <div class="diagnosis_heading">Outcome</div>
+                <div class="outcome" id="outcome"></div>
+            </div>
+            <div class="report area">
+                <div class="report_heading">Analysis of Patient's Data</div>
+                <div class="AI" id="bot"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve values from localStorage
+            const glucose = localStorage.getItem('glucose');
+            const bp = localStorage.getItem('bp');
+            const insulin = localStorage.getItem('insulin');
+            const bmi = localStorage.getItem('bmi');
+            const age = localStorage.getItem('age');
+            const outcome = localStorage.getItem('outcomeR');
+            const response = localStorage.getItem('doc');
+
+            // Display values on the page
+            document.getElementById('d1').textContent = glucose + ' mg/dL';
+            document.getElementById('d2').textContent = bp + ' mm Hg';
+            document.getElementById('d3').textContent = insulin + ' µIU/mL';
+            document.getElementById('d4').textContent = bmi + ' kg/m²';
+            document.getElementById('d5').textContent = age + ' years old';
+            document.getElementById('outcome').textContent = outcome;
+            document.getElementById('bot').innerHTML = response;
+        });
+    </script>
+</body>
+</html>
