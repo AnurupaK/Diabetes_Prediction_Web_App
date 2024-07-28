@@ -9,7 +9,14 @@ import pickle
 import numpy as np
 import pandas as pd
 
-model = pickle.load(open('../models/LogR_model.pkl','rb'))
+# Get the path to the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to the model file
+model_path = os.path.join(current_dir, '..', 'models', 'LogR_model.pkl')
+
+with open(model_path, 'rb') as file:
+    model = pickle.load(file)
 
 app = Flask(__name__,template_folder='../Frontend/templates',static_folder='../Frontend/static')
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'AI_Service')))
