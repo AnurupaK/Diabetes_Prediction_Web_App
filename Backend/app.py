@@ -9,10 +9,11 @@ import pickle
 import numpy as np
 import pandas as pd
 
-# Get the path to the current directory
+
+# #Get the path to the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Construct the path to the model file
+# #Construct the path to the model file
 model_path = os.path.join(current_dir, '..', 'models', 'LogR_model.pkl')
 
 with open(model_path, 'rb') as file:
@@ -20,8 +21,10 @@ with open(model_path, 'rb') as file:
 
 app = Flask(__name__,template_folder='../Frontend/templates',static_folder='../Frontend/static')
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'AI_Service')))
+from doctor_response import get_doc_response
 
-from doctor_response import get_doc_response, update_model, Doc_instruction
+
+
 
 @app.route('/')
 def home():
@@ -79,14 +82,14 @@ def get_outcome():
                 return jsonify({'message':message,'value_msg':0})
     else:
         message = (
-                        "Try putting values in range and not keeping input areas blank 🧐.\n"
-                        "Here are the ranges:\n"
-                        "🍭 Glucose: 0 to 201\n"
-                        "🩸 BP: 0 to 123\n"
-                        "💉 Insulin: 0 to 850\n"
-                        "⚖️ BMI: 0 to 70\n"
-                        "🕰️ Age: 0 to 90"
-               )
+            "Try putting values in range and not keeping input areas blank 🧐.\n"
+            "Here are the ranges:\n"
+            "🍭 Glucose: 0 to 201\n"
+            "🩸 BP: 0 to 123\n"
+            "💉 Insulin: 0 to 850\n"
+            "⚖️ BMI: 0 to 70\n"
+            "🕰️ Age: 0 to 90"
+        )
         return jsonify({'message':message,'value_msg':0})
     
 @app.route('/api/checkDiabetes',methods = ['POST'])
@@ -130,18 +133,11 @@ def DoctorResponse():
     insulin = data['insulin']
     bmi = data['bmi']
     age = data['age']
+    text_user = f"Hello Doctor! These are my diabetes data: Glucose: {glucose} mg/dL, Blood Pressure: {bp} mm Hg, Insulin: {insulin} µIU/mL, BMI: {bmi} kg/m², Age: {age} years and my diagnosis is: {outcome}. Review my data Provide a brief three short points report focusing on the implications of these results, including insights into the patient's condition and  advice on health management strategies."
     
-    instruction_for_doctor = Doc_instruction(outcome,glucose,bp,insulin,bmi,age)
-    print(instruction_for_doctor)
-    
-    if instruction_for_doctor is None:
-        return jsonify({'error': 'Invalid Instruction for Doctor'})
-
-    # Update model with instruction
-    update_model(instruction_for_doctor)
     doc_response = ""
     
-    doc_response = get_doc_response("Review patient data") 
+    doc_response = get_doc_response(text_user) 
     
     message = 'Sent successfully'
     print(f"message: {message}")
