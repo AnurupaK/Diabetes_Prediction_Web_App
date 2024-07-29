@@ -133,7 +133,7 @@ def DoctorResponse():
     insulin = data['insulin']
     bmi = data['bmi']
     age = data['age']
-    text_user = f"Hello Doctor! These are my diabetes data: Glucose: {glucose} mg/dL, Blood Pressure: {bp} mm Hg, Insulin: {insulin} µIU/mL, BMI: {bmi} kg/m², Age: {age} years and my diagnosis is: {outcome}. Review my data Provide a brief three short points report focusing on the implications of these results, including insights into the patient's condition and  advice on health management strategies."
+    text_user = f"Hello Doctor! These are my diabetes data: Glucose: {glucose} mg/dL, Blood Pressure: {bp} mm Hg, Insulin: {insulin} µIU/mL, BMI: {bmi} kg/m², Age: {age} years and my diagnosis is: {outcome}. Review my data Provide a brief three short points report focusing on the implications of these results, including insights into the patient's condition and  advice on health management strategies in 210 words only."
     
     doc_response = ""
     
