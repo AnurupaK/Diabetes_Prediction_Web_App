@@ -127,3 +127,7 @@ Diabetes_project/
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ## Demo
+
+
+https://github.com/user-attachments/assets/7134075f-1b1e-45d7-bed0-60be6c0e3791
+
